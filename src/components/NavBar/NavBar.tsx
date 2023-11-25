@@ -1,7 +1,47 @@
+import { useState } from "react";
 import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap"
 import { Basket, Person } from "react-bootstrap-icons"
+import { useNavigate } from "react-router-dom"
+import { TaskService } from "../../services/TaskService";
+import { toast } from "react-toastify";
+import { Task } from "../../types/task";
+import ModalAgregarTarea from "../ModalAgregarTarea/ModalAgregarTarea";
 
 const NavBar = () => {
+
+    const navigate = useNavigate();
+    const [showModal, setShowModal] = useState(false);
+
+    const handleShowModal = () => {
+        setShowModal(true);
+    };
+
+    const handleCloseModal = () => {
+        setShowModal(false);
+    };
+
+    //Agregar tarea
+    const createTask = async (newTask: Task) => {
+        try {
+            const result = await TaskService.createTask(newTask);
+            console.log('Nueva tarea agregada:', result.id);
+            navigate(`/detalle/${result.id}`);
+
+            toast.success('Tarea creada correctamente', {
+                position: toast.POSITION.TOP_RIGHT,
+                autoClose: 2000,
+            });
+        } catch (error) {
+            toast.error('Error al crear la tarea', {
+                position: toast.POSITION.TOP_RIGHT,
+                autoClose: 2000,
+            });
+            console.log('Error al crear la tarea:', error);
+        }
+    };
+
+
+
     return (
         <>
             <Navbar expand="lg" className="bg-body-tertiary">
@@ -23,7 +63,8 @@ const NavBar = () => {
                                 </NavDropdown.Item>
                             </NavDropdown>
 
-                            <Nav.Link href="#link">Agregar tarea</Nav.Link>
+                            {/*Agregar una nueva tarea */}
+                            <Nav.Link onClick={handleShowModal}>Agregar tarea</Nav.Link>
 
                         </Nav>
 
@@ -54,6 +95,9 @@ const NavBar = () => {
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
+
+            <ModalAgregarTarea showModal={showModal} handleClose={handleCloseModal} createTask={createTask} />
+
         </>
 
     )
