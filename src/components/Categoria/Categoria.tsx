@@ -1,7 +1,8 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Task } from "../../types/task"
 import CategoriasSelector from "../CategoriasSelector/CategoriasSelector";
 import CategoriasTareas from "../CategoriasTareas/CategoriasTareas";
+import { TaskService } from "../../services/TaskService";
 
 const Categoria = () => {
   const [tasks, setTasks] = useState<Task[]>([]);
