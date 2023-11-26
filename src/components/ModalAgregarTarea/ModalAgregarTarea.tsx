@@ -46,7 +46,7 @@ const ModalAgregarTarea: React.FC<ModalAgregarTareaProps> = ({ showModal, handle
     return (
 
         <Modal show={showModal} onHide={handleClose}>
-            <Modal.Header closeButton>
+            <Modal.Header className="bg-secondary text-white" closeButton>
                 <Modal.Title>Agregue una tarea</Modal.Title>
             </Modal.Header>
 
@@ -179,7 +179,7 @@ const ModalAgregarTarea: React.FC<ModalAgregarTareaProps> = ({ showModal, handle
                         ) : null}
                     </div>
                     <div className="text-end">
-                        <Button className="px-5" variant="primary" type="submit"> Enviar </Button>
+                        <Button className="px-5" variant="dark" type="submit"> Enviar </Button>
                     </div>
 
 
