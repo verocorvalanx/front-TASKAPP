@@ -1,10 +1,11 @@
+import React from 'react';
 import { BsBookmarkCheck, BsCheck, BsGear, BsPencilSquare } from 'react-icons/bs';
 
-interface CateogoriasSelectorProps {
+interface CategoriasSelectorProps {
   onSelectedCategory: (categoria: string) => void;
 }
 
-const CategoriasSelector = React.FC<CateogoriasSelectorProps>({ onSelectedCategory }) => {
+const CategoriasSelector: React.FC<CategoriasSelectorProps> = ({ onSelectedCategory }) => {
   const categorias = [
     { nombre: 'PORHACER', icono: <BsCheck /> },
     { nombre: 'ENPRODUCCION', icono: <BsGear /> },
