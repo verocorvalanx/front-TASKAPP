@@ -10,7 +10,7 @@ export const TaskService = {
         return data;
     },
 
-    getOneTask: async (): Promise<Task> => {
+    getOneTask: async (id: number): Promise<Task> => {
         const response = await fetch(`${BASE_URL}/${id}`);
         const data = await response.json();
         return data;
