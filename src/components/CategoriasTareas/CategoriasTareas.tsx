@@ -34,11 +34,10 @@ const CategoriasTareas = ({ tasks }: { tasks: Task[] }) => {
                       </div>
                     </div>
 
-                    {/*Botón que redirige al detlla de la tarea */}
+                    {/*Botón que redirige al detalle de la tarea */}
                     <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
                       <div className="text-center d-flex gap-1 align-items-center justify-content-center">
-                        <Link to={`/detalle/${task.id}`} className="btn btn-outline-secondary mt-auto"> Ver más
-                        </Link>
+                        <Link to={`/detalle/${task.id}`} className="btn btn-outline-secondary mt-auto"> Ver más </Link>
                       </div>
                     </div>
 

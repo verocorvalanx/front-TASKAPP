@@ -52,7 +52,7 @@ const NavBar = () => {
 
                         <Nav className="me-auto">
 
-                            <Nav.Link href="#home">Inicio</Nav.Link>
+                            <Nav.Link onClick={()=> navigate('/')}>Inicio</Nav.Link>
 
                             <NavDropdown title="Tareas" id="basic-nav-dropdown">
                                 <NavDropdown.Item href="#action/3.1">Por hacer</NavDropdown.Item>

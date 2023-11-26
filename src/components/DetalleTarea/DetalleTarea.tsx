@@ -18,13 +18,16 @@ const DetalleTarea = () => {
   //obtener una tarea
 
   useEffect(() => {
+
+    //obtener una tarea
     const fetchTask = async () => {
       try {
         if (taskId && !isNaN(parseInt(taskId, 10))) {
-          const TaskData = await TaskService.getOneTask(parseInt(taskId, 10));
-          setTask(TaskData);
+          const taskData = await TaskService.getOneTask(parseInt(taskId, 10));
+          setTask(taskData);
+          
 
-          const tasksInCategory = await TaskService.getTaskInCategory(TaskData.estado);
+          const tasksInCategory = await TaskService.getTaskInCategory(taskData.estado);
           setRelatedTasks(tasksInCategory);
         } else {
           console.error('Identificador de tarea no válido');
@@ -133,19 +136,14 @@ const DetalleTarea = () => {
                 <p className="card-text">Tiempo: {relatedTask.tiempo}</p>
                 <p className="card-text">Responsable: {relatedTask.responsable}</p>
 
-
                 <Button variant="primary" onClick={() => navigate(`/detalle/${relatedTask.id}`)}> Ver más </Button>
 
               </div>
-
             </div>
-
 
           </div>
         ))}
-
       </div>
-
     </div>
   )
 }

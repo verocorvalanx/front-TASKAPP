@@ -6,7 +6,7 @@ const AppRoutes: React.FC = () => {
     return (
         <Routes>
             <Route path="/" element={<LandingPage />} />
-            <Route path="/detalle/:TaskId" element={<DetalleTareaPage />} />
+            <Route path="/detalle/:taskId" element={<DetalleTareaPage />} />
         </Routes>
     )
 }
