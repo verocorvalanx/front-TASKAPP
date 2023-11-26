@@ -34,7 +34,7 @@ const LandingPage = () => {
         <>
             <CarouselHome />
             <CategoriasSelector onSelectedCategory={setSelectedCategory} />
-            <CategoriasTareas task={filteredTasks.length > 0 ? filteredTasks : tasks} />
+            <CategoriasTareas tasks={filteredTasks.length > 0 ? filteredTasks : tasks} />
         </>
     )
 }
