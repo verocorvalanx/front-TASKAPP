@@ -1,7 +1,7 @@
 import { Task } from "../../types/task";
 import { Link } from "react-router-dom";
 
-const CategoriasTareas = ({ tasks }: { task: Task[] }) => {
+const CategoriasTareas = ({ tasks }: { tasks: Task[] }) => {
   const categorias = ['PORHACER', 'ENPRODUCCION', 'PORTESTEAR', 'COMPLETADA'];
 
   return (
